@@ -1,5 +1,5 @@
-Summary:	Palace is an XMMS visualization used for parallel port light shows.
-Summary(pl):	Palace to wtyczka XMMS do sterowania swiatlami przez port rownolegly
+Summary:	Palace - an XMMS visualization used for parallel port light shows
+Summary(pl):	Palace - wtyczka XMMS do sterowania ¶wiat³ami przez port równoleg³y
 Name:		xmms-visualization-palace
 Version:	0.2.1
 Release:	1
@@ -7,7 +7,7 @@ License:	LGPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/palace-dci/palace-%{version}.tar.bz2
 # Source0-md5:	d97959c388e3e12bd74e322971ced9c9
-URL:		http://palace-dci.sourceforge.net
+URL:		http://palace-dci.sourceforge.net/
 BuildRequires:	xmms-devel
 Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,24 +23,27 @@ and configuration options. Palace was based on the XPLSISNJASP
 software project. For examples of hardware use useful with Palace,
 visit one of the following web sites:
 
-http://www.na.linux.hr/projects/xplsisnjasp - XPLSISNJASP project web site
-http://www.discolitez.com - Discolitez is a similar plugin for Winamp
+http://www.na.linux.hr/projects/xplsisnjasp/ - XPLSISNJASP project web site
+http://www.discolitez.com/ - Discolitez is a similar plugin for Winamp
 
 %description -l pl
-Palace to wtyczka XMMS do sterowania swiatlami, napisana na bazie
-projektu XPLSISNJASP. Dzieki prostemu sprzetowi podlaczonemu do
-komputera oraz tej wtyczce mozemy nasz komputer zamienic w calkiem
-przyjemny zestaw do malej domowej dyskoteki :-)
-Wiecej informacji:
+Palace to wtyczka XMMS do sterowania ¶wiat³ami, napisana na bazie
+projektu XPLSISNJASP. Dziêki prostemu sprzêtowi pod³±czonemu do
+komputera oraz tej wtyczce mo¿emy nasz komputer zamieniæ w ca³kiem
+przyjemny zestaw do ma³ej domowej dyskoteki :-)
 
-http://www.na.linux.hr/projects/xplsisnjasp - strona projektu XPLSISNJASP
-http://www.discolitez.com - podobna wtyczka dla programu Winamp
+Przyk³ady sprzêtu, który mo¿na wykorzystaæ z Palace, mo¿na znale¼æ na
+tych stronach:
+
+http://www.na.linux.hr/projects/xplsisnjasp/ - strona projektu XPLSISNJASP
+http://www.discolitez.com/ - podobna wtyczka dla programu Winamp
+
 %prep
 %setup -q -n palace-%{version}
 
 %build
-
-%configure --datadir=%{_xmms_data_dir}
+%configure \
+	--datadir=%{_xmms_data_dir}
 
 %{__make}
 
@@ -48,6 +51,7 @@ http://www.discolitez.com - podobna wtyczka dla programu Winamp
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_xmms_plugin_dir}
 install -d $RPM_BUILD_ROOT%{_xmms_data_dir}/palace/pixmaps
+
 install ./src/.libs/libpalace.so $RPM_BUILD_ROOT%{_xmms_plugin_dir}
 install ./src/.libs/libpalace.la $RPM_BUILD_ROOT%{_xmms_plugin_dir}
 install ./pixmaps/*.xpm $RPM_BUILD_ROOT%{_xmms_data_dir}/palace/pixmaps
