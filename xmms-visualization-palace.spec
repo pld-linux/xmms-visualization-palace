@@ -1,5 +1,5 @@
 Summary:	Palace - an XMMS visualization used for parallel port light shows
-Summary(pl):	Palace - wtyczka XMMS do sterowania ¶wiat³ami przez port równoleg³y
+Summary(pl):	Palace - wtyczka dla XMMS-a do sterowania ¶wiat³ami przez port równoleg³y
 Name:		xmms-visualization-palace
 Version:	0.2.1
 Release:	3
@@ -27,7 +27,7 @@ http://www.na.linux.hr/projects/xplsisnjasp/ - XPLSISNJASP project web site
 http://www.discolitez.com/ - Discolitez is a similar plugin for Winamp
 
 %description -l pl
-Palace to wtyczka XMMS do sterowania ¶wiat³ami, napisana na bazie
+Palace to wtyczka XMMS-a do sterowania ¶wiat³ami, napisana na bazie
 projektu XPLSISNJASP. Dziêki prostemu sprzêtowi pod³±czonemu do
 komputera oraz tej wtyczce mo¿emy nasz komputer zamieniæ w ca³kiem
 przyjemny zestaw do ma³ej domowej dyskoteki :-)
