@@ -2,15 +2,17 @@ Summary:	Palace - an XMMS visualization used for parallel port light shows
 Summary(pl):	Palace - wtyczka XMMS do sterowania ¶wiat³ami przez port równoleg³y
 Name:		xmms-visualization-palace
 Version:	0.2.1
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/palace-dci/palace-%{version}.tar.bz2
 # Source0-md5:	d97959c388e3e12bd74e322971ced9c9
 URL:		http://palace-dci.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	rpmbuild(macros) >= 1.125
 BuildRequires:	xmms-devel
 Requires:	xmms
+ExclusiveArch:	%{ix86} amd64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,6 +42,7 @@ http://www.discolitez.com/ - podobna wtyczka dla programu Winamp
 %setup -q -n palace-%{version}
 
 %build
+cp -f /usr/share/automake/config.sub .
 %configure \
 	--datadir=%{xmms_datadir}
 
