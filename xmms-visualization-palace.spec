@@ -2,18 +2,16 @@ Summary:	Palace - an XMMS visualization used for parallel port light shows
 Summary(pl):	Palace - wtyczka XMMS do sterowania ¶wiat³ami przez port równoleg³y
 Name:		xmms-visualization-palace
 Version:	0.2.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/palace-dci/palace-%{version}.tar.bz2
 # Source0-md5:	d97959c388e3e12bd74e322971ced9c9
 URL:		http://palace-dci.sourceforge.net/
+BuildRequires:	rpmbuild(macros) >= 1.125
 BuildRequires:	xmms-devel
 Requires:	xmms
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define         _xmms_plugin_dir        %(xmms-config --visualization-plugin-dir)
-%define         _xmms_data_dir          %(xmms-config --data-dir)
 
 %description
 Palace is a nifty visualization plug in for XMMS. It works by reading
@@ -43,18 +41,18 @@ http://www.discolitez.com/ - podobna wtyczka dla programu Winamp
 
 %build
 %configure \
-	--datadir=%{_xmms_data_dir}
+	--datadir=%{xmms_datadir}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_xmms_plugin_dir}
-install -d $RPM_BUILD_ROOT%{_xmms_data_dir}/palace/pixmaps
+install -d $RPM_BUILD_ROOT%{xmms_visualization_plugindir} \
+	$RPM_BUILD_ROOT%{xmms_datadir}/palace/pixmaps
 
-install ./src/.libs/libpalace.so $RPM_BUILD_ROOT%{_xmms_plugin_dir}
-install ./src/.libs/libpalace.la $RPM_BUILD_ROOT%{_xmms_plugin_dir}
-install ./pixmaps/*.xpm $RPM_BUILD_ROOT%{_xmms_data_dir}/palace/pixmaps
+install ./src/.libs/libpalace.so $RPM_BUILD_ROOT%{xmms_visualization_plugindir}
+install ./src/.libs/libpalace.la $RPM_BUILD_ROOT%{xmms_visualization_plugindir}
+install ./pixmaps/*.xpm $RPM_BUILD_ROOT%{xmms_datadir}/palace/pixmaps
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,5 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_xmms_plugin_dir}/*
-%{_xmms_data_dir}/*
+%attr(755,root,root) %{xmms_visualization_plugindir}/*
+%{xmms_datadir}/*
