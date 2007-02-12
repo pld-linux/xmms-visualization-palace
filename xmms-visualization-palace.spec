@@ -1,5 +1,5 @@
 Summary:	Palace - an XMMS visualization used for parallel port light shows
-Summary(pl.UTF-8):   Palace - wtyczka dla XMMS-a do sterowania światłami przez port równoległy
+Summary(pl.UTF-8):	Palace - wtyczka dla XMMS-a do sterowania światłami przez port równoległy
 Name:		xmms-visualization-palace
 Version:	0.2.1
 Release:	3
